@@ -8,11 +8,15 @@
 }
 
 .reservation_box-content {
-	margin-top: 80px;
-	height: 60%;
-	width: 80%;
+	margin: 80px 80px;
+	height: auto;
+	width: auto;
 	background-color: white;
 	border-radius: 10px;
+
+	@media (max-width: 895px) {
+		margin: 10px 10px;
+	}
 }
 
 .reservation_title {

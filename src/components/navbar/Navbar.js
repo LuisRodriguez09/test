@@ -12,15 +12,12 @@ export const Navbar = () => {
 		<div className="container">
 
 			<header className="navbar__header">
-				<img alt="img" className="navbar__logo" src="https://media.jtdwjcwq6f4wp4ce.com/y4/logos/y4-large-default.svg" />
+				<h2 className="navbar__logo">TrueHome Vuelos</h2>
 				<nav>
 					<ul className="nav__links">
-						<li className="navbar__li"> <a className="navbar__a" href="#" >Iniciar Sesión</a></li>
-						<li className="navbar__li"> <a className="navbar__a" href="#" >Registrarme</a></li>
-
 					</ul>
 				</nav>
-				<a className="cta" href="#">
+				<a className="cta" href="/#">
 					<button
 						className="navbar__button"
 						onClick={() => Toggle()}
@@ -29,8 +26,9 @@ export const Navbar = () => {
 					</button>
 				</a>
 
-				<Bookings show={modal} close={Toggle} title="Mis vuelos reservados" />
-
+				{modal && (
+					<Bookings show={modal} close={Toggle} title="Mis vuelos reservados" />
+				)}
 			</header>
 
 		</div>

@@ -17,7 +17,7 @@
 		padding: 2rem;
 		border-radius: 20px;
 
-		background-color: rgba(255, 255, 255, 0.35);
+		background-color: rgb(255, 255, 255);
 		backdrop-filter: blur(5px);
 		box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
 
@@ -82,4 +82,52 @@
 			}
 		}
 	}
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td,
+th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+.edit__booking {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.booking__button {
+	background-color: $primary;
+	border-radius: 5px;
+	border: none;
+	color: white;
+	padding: 5px 3px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.booking__button:hover {
+	background-color: darken($color: $primary, $amount: 20);
+}
+
+.booking__price-box {
+	display: flex;
+	margin-top: 10px;
+	justify-content: right;
+}
+
+.booking__price {
+	font-weight: bold;
 }

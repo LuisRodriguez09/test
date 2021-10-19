@@ -3,6 +3,11 @@
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
+	margin: 0 30px;
+
+	@media (max-width: 895px) {
+		flex-direction: column;
+	}
 }
 
 .form__select {
@@ -16,7 +21,7 @@
 	width: 180px;
 	max-width: 100%;
 	box-sizing: border-box;
-	margin: 0;
+	margin: 10px 10px;
 	border: 1px solid #aaa;
 	box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.03);
 	border-radius: 0.3em;
@@ -42,7 +47,7 @@
 	width: 180px;
 	max-width: 100%;
 	box-sizing: border-box;
-	margin: 0;
+	margin: 10px 10px;
 	border: 1px solid #aaa;
 	box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.03);
 	border-radius: 0.3em;
@@ -68,7 +73,7 @@
 	width: 180px;
 	max-width: 100%;
 	box-sizing: border-box;
-	margin: 0;
+	margin: 10px 10px;
 	border: 1px solid #aaa;
 	box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.03);
 	border-radius: 0.3em;
@@ -87,6 +92,9 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 25px;
+	@media (max-width: 895px) {
+		margin-top: 5px;
+	}
 }
 
 .form__button-style {
