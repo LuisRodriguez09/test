@@ -10,7 +10,5 @@ export const startGetCities = () => {
 
 export const getCitiesSave = (cities) => ({
 	type: types.citiesGet,
-	payload: cities
-
+	payload: cities,
 });
-

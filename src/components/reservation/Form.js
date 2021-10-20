@@ -1,50 +1,55 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { availableSave } from '../../actions/available';
-import Swal from 'sweetalert2';
-import { startGetCities } from '../../actions/cities';
-import { useForm } from '../../hooks/useForm';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { availableSave } from "../../actions/available";
+import Swal from "sweetalert2";
+import { startGetCities } from "../../actions/cities";
+import { useForm } from "../../hooks/useForm";
 import { getAvailable } from "../../helpers/getAvailable";
-import { setShowTrip } from '../../actions/show';
+import { setShowTrip } from "../../actions/show";
 
 export const Form = () => {
-
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(startGetCities());
-
 	}, [dispatch]);
 
-	const state = useSelector(state => state.reservation);
+	const state = useSelector((state) => state.reservation);
 
 	const [values, handleInputChange, reset] = useForm({
-		originCity: '',
-		destinyCity: '',
-		departureDate: '',
-		returnDate: '',
-		passengers: ''
+		originCity: "",
+		destinyCity: "",
+		departureDate: "",
+		returnDate: "",
+		passengers: "",
 	});
 
-	const { originCity, destinyCity, departureDate, returnDate, passengers } = values;
+	const { originCity, destinyCity, departureDate, returnDate, passengers } =
+		values;
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		if (!originCity || !destinyCity || !departureDate || !returnDate || !passengers) {
-			Swal.fire('Error', "Rellene todos los campos", 'error');
+		if (
+			!originCity ||
+			!destinyCity ||
+			!departureDate ||
+			!returnDate ||
+			!passengers
+		) {
+			Swal.fire("Error", "Rellene todos los campos", "error");
 			return;
 		}
 		reset();
 		const [{ id, available }] = await getAvailable(originCity);
-		const resultFilter = available.filter(city => city === destinyCity);
+		const resultFilter = available.filter((city) => city === destinyCity);
 
 		if (resultFilter.length < 1) {
-			Swal.fire('Error', "No hay vuelos disponibles", 'error');
+			Swal.fire("Error", "No hay vuelos disponibles", "error");
 		}
 
-		dispatch(availableSave(
-			{
+		dispatch(
+			availableSave({
 				id,
 				originCity,
 				destinyCity,
@@ -52,34 +57,33 @@ export const Form = () => {
 				returnDate,
 				passengers,
 				available: resultFilter,
-				price: 1300 * passengers
-			}));
+				price: 1300 * passengers,
+			})
+		);
 		dispatch(setShowTrip(true));
 	};
 
 	return (
 		<>
-			<form
-				onSubmit={handleSubmit}
-			>
+			<form onSubmit={handleSubmit}>
 				<div className="form__contain">
-
-					<div >
+					<div>
 						<select
 							name="originCity"
 							className="form__select"
 							value={originCity}
 							onChange={handleInputChange}
 						>
-							<option value="" disabled>Origen</option>
-							{
-								state.cities.map(city => {
-									return (<option value={city.city} key={city.id}>{city.city}</option>
-									);
-								}
-
-								)
-							}
+							<option value="" disabled>
+								Origen
+							</option>
+							{state.cities.map((city) => {
+								return (
+									<option value={city.city} key={city.id}>
+										{city.city}
+									</option>
+								);
+							})}
 						</select>
 					</div>
 					<div>
@@ -89,12 +93,14 @@ export const Form = () => {
 							value={destinyCity}
 							onChange={handleInputChange}
 						>
-							<option value="" disabled>Destino</option>
-							{
-								state.cities.map(city => (
-									<option value={city.city} key={city.id} >{city.city}</option>
-								))
-							}
+							<option value="" disabled>
+								Destino
+							</option>
+							{state.cities.map((city) => (
+								<option value={city.city} key={city.id}>
+									{city.city}
+								</option>
+							))}
 						</select>
 					</div>
 					<div>
@@ -127,21 +133,17 @@ export const Form = () => {
 							onChange={handleInputChange}
 						/>
 					</div>
-
 				</div>
 
 				<div className="form__button">
 					<button
 						type="submit"
 						className="form__button-style pointer"
-					>Buscar</button>
+					>
+						Buscar
+					</button>
 				</div>
-
 			</form>
-
 		</>
 	);
 };
-
-
-

@@ -1,20 +1,18 @@
 import { types } from "../types/types";
 
 const initialState = {
-	availableCities: {}
+	availableCities: {},
 };
 
 export const availableReducer = (state = initialState, action) => {
-
 	switch (action.type) {
 		case types.availableCities:
 			return {
 				...state,
-				availableCities: { ...action.payload }
+				availableCities: { ...action.payload },
 			};
 
 		default:
 			return state;
 	}
-
 };

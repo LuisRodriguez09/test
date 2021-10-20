@@ -1,14 +1,15 @@
-
 export const types = {
+	citiesGet: "[Cities] Get city",
 
-	citiesGet: '[Cities] Get city',
+	availableCities: "[Available] Get cities available",
 
-	availableCities: '[Available] Get cities available',
+	saveReservation: "[Save] Save reservation",
 
-	saveReservation: '[Save] Save reservation',
+	showBooking: "[] Set show booking",
 
-	showTrip: '[] Set show trip',
+	showTrip: "[] Set show trip",
 
-	saveHour: '[] Save hour'
+	showForm: "[] Set show form",
 
+	saveHour: "[] Save hour",
 };

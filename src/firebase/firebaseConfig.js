@@ -1,4 +1,3 @@
-
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
@@ -8,13 +7,11 @@ const firebaseConfig = {
 	projectId: "true-home-fb525",
 	storageBucket: "true-home-fb525.appspot.com",
 	messagingSenderId: "619418996978",
-	appId: "1:619418996978:web:224fe2e4cc93a18da4406b"
+	appId: "1:619418996978:web:224fe2e4cc93a18da4406b",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 
-export {
-	db
-};
+export { db };
